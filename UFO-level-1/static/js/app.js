@@ -26,29 +26,29 @@ function runEnter() {
   d3.event.preventDefault();  
   // Set a variable for each of the form inputs and select the input element.
   var inputDate = d3.select("#datetime");
-  // var inputCity = d3.select("#city");
-  // var inputState = d3.select("#state");
-  // var inputShape = d3.select("#shape");
+  var inputCity = d3.select("#city");
+  var inputState = d3.select("#state");
+  var inputShape = d3.select("#shape");
   // Set a variable for the input value of each input element & get the value property.
   var dateValue = inputDate.property("value");
-  // var cityValue = inputCity.property("value");
-  // var stateValue = inputState.property("value");
-  // var shapeValue = inputShape.property("value");
+  var cityValue = inputCity.property("value");
+  var stateValue = inputState.property("value");
+  var shapeValue = inputShape.property("value");
   // Set the data to a variable so can continue to filter down.
   var filteredData = tableData; 
   //  Create an exception for each input value to gather each input if present and store in filteredData otherwise do nothing.
   if (dateValue) {
     filteredData = filteredData.filter(sighting => sighting.datetime === dateValue);
   };
-  // if (cityValue) {
-  //   filteredData = filteredData.filter(sighting => sighting.city === cityValue);
-  // };
-  // if (stateValue) {
-  //   filteredData = filteredData.filter(sighting => sighting.state === stateValue);
-  // };
-  // if (shapeValue) {
-  //   filteredData = filteredData.filter(sighting => sighting.shape === shapeValue);
-  // };
+  if (cityValue) {
+    filteredData = filteredData.filter(sighting => sighting.city === cityValue);
+  };
+  if (stateValue) {
+    filteredData = filteredData.filter(sighting => sighting.state === stateValue);
+  };
+  if (shapeValue) {
+    filteredData = filteredData.filter(sighting => sighting.shape === shapeValue);
+  };
   // Create the new table based upon the stored filteredData.
   createTable(filteredData);
   // Display in the console the results of the filter.
