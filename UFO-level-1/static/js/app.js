@@ -35,7 +35,7 @@ function runEnter() {
   var stateValue = inputState.property("value");
   var shapeValue = inputShape.property("value");
   // Set the data to a variable so can continue to filter down.
-  var filteredData = tableData; 
+  var filteredData = tableData;
   //  Create an exception for each input value to gather each input if present and store in filteredData otherwise do nothing.
   if (dateValue) {
     filteredData = filteredData.filter(sighting => sighting.datetime === dateValue);
