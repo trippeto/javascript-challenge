@@ -29,11 +29,13 @@ function runEnter() {
   var inputCity = d3.select("#city");
   var inputState = d3.select("#state");
   var inputShape = d3.select("#shape");
+  var inputCountry = d3.select("#country");
   // Set a variable for the input value of each input element & get the value property.
   var dateValue = inputDate.property("value");
   var cityValue = inputCity.property("value");
   var stateValue = inputState.property("value");
   var shapeValue = inputShape.property("value");
+  var countryValue = inputCountry.property("value");
   // Set the data to a variable so can continue to filter down.
   var filteredData = tableData;
   //  Create an exception for each input value to gather each input if present and store in filteredData otherwise do nothing.
@@ -48,6 +50,9 @@ function runEnter() {
   };
   if (shapeValue) {
     filteredData = filteredData.filter(sighting => sighting.shape === shapeValue);
+  };
+  if (countryValue) {
+    filteredData = filteredData.filter(sighting => sighting.country === countryValue);
   };
   // Create the new table based upon the stored filteredData.
   createTable(filteredData);
